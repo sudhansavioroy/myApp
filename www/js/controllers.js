@@ -1,6 +1,6 @@
-var starter=angular.module('starter.controllers', [])
+var starter=angular.module('starter.controllers', []);
 
-.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
+starter.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
     $scope.data = {};
 
     $scope.login = function() {
@@ -15,6 +15,7 @@ var starter=angular.module('starter.controllers', [])
     }
 })
 
+
 .controller('registerController', function($scope,$state) {
     $scope.data = {};
 
@@ -22,6 +23,48 @@ var starter=angular.module('starter.controllers', [])
             $state.go('login');
           }
         })
+
+
+.controller('cropsController',function($scope,$state)
+{
+  $scope.data={};
+
+  $scope.crops=function() {
+    $state.go('');
+  }
+})
+
+.controller('SowingCtrl', function SowingCtrl($scope, cropsData,$http) {
+  $scope.crops=cropsData.crops;
+  $http.get('data/data.json').success(function(crops){
+  $scope.cropsData=crops.sowings;
+
+  $scope.sowings=[];
+  $scope.protocols=[];
+  $scope.practices=[];
+
+  angular.forEach(crops.sowings, function(demoCrops, index)
+{
+  angular.forEach(demoCrops.sowings, function(sowingsGroup, index){
+    $scope.sowings.push(sowingsGroup);
+
+  angular.forEach(sowingsGroup.protocols, function(protocolsGroup, index){
+    $scope.protocols.push(protocolsGroup);
+
+    angular.forEach(protocolsGroup.practices, function(practicesGroup, index){
+      $scope.practices.push(practicesGroup);
+    });
+  });
+
+});
+}) ;
+  });
+$scope.setGroups=function(groups){
+  $scope.useGroups=groups;
+}
+})
+
+
 
 .controller('DashCtrl', function($scope) {})
 
@@ -47,6 +90,7 @@ var starter=angular.module('starter.controllers', [])
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
+
     enableFriends: true
   };
 });

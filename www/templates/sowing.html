@@ -1,0 +1,22 @@
+<ion-view view-title="Paddy">
+  <ion-content class="padding">
+<div class="container" data ng-app="starter">
+<h1> Protocols </h1>
+<div ng-controller="SowingCtrl">
+  <div>
+    <ul>
+      <li>Name:{{crops.name}}</li>
+  <li>Type:{{crops.type}}</li>
+  <li ng-repeat="groups in cropsData" ng-click="setGroups(groups)">
+  <a href="#">{{groups.name}}content</a></li>
+  <h1>{{useGroups.sowings}}</h1>
+
+  <ul class="list-unstyled" ng-repeat="sowings in useGroups.sowings">
+    <li ng-repeat="protocols in sowings.protocols">{{sowings.name}}
+      {{sowings.type}}</li></ul>
+  </div>
+</div>
+</div>
+
+</ion-content>
+</ion-view>

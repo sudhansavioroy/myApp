@@ -53,7 +53,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   templateUrl:"templates/register.html",
   controller:'registerController'
   })
-  
+
+
+.state('crops',{
+  url:"/crops",
+  templateUrl:"templates/crops.html",
+  controller:'cropsController'
+})
+
+
+  .state('sowing',{
+    url:"/sowing",
+    templateUrl:"templates/sowing.html",
+    controller:'SowingCtrl'
+  })
+
+
   .state('tab.dash', {
     url: '/dash',
     views: {
@@ -73,6 +88,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+
     .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
