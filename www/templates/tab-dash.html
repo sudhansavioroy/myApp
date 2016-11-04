@@ -1,6 +1,42 @@
 <ion-view view-title="Crops">
   <ion-content class="padding">
+  <div ng-controller="SowingCtrl">
 
+    <ul>
+      <li ng-repeat="crop in crops">
+        <button> <a href="#/sowing/{{crop.name}}">{{crop.name}}</a></button>
+      </li>
+    </ul>
+
+    <div >
+      <h1> Full content</h1>
+      <ul>
+        <li ng-repeat="crop in crops">
+          <button> <a href="#/sowing/{{crop.name}}">{{crop.name}}</a></button>
+          <!-- decent into sowings -->
+          <ul>
+            <li ng-repeat="sowing in crop.sowings">{{sowing.name}}
+            <!-- decent into content of sowings & print protocol name -->
+              <ul>
+                <li ng-repeat="protocol in sowing.protocols">{{protocol.name}}
+                <!-- decent into practices under a protocol -->
+                  <ul>
+                    <li ng-repeat="practice in protocol.practices">
+                      {{practice.name}}
+                      {{practice.description}}
+                    </li>
+                  </ul>
+
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+    </ul>
+    </div>
+
+
+  </div>
     <center><button><a href="#/sowing">Paddy</a></button></center>
     <center><button><a href="#/tomato">Tomato</a></button></center>
     <center><button><a href="#/groundnut">Groundnut</a></button></center>
