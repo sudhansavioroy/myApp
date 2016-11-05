@@ -34,34 +34,36 @@ starter.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $sta
   }
 })
 
-.controller('SowingCtrl', function SowingCtrl($scope, cropsData,$http) {
-  $scope.crops=cropsData.crops;
-  $http.get('data/data.json').success(function(crops){
-  $scope.cropsData=crops.sowings;
+.controller('SowingCtrl', function SowingCtrl($scope, cropsData, $stateParams) {
 
-  $scope.sowings=[];
-  $scope.protocols=[];
-  $scope.practices=[];
+  $scope.crops= cropsData.crops;
+  console.log("hello1")
+  console.log($stateParams.cropname);
+  console.log("hello2")
+  // $http.get('data/data.json').success(function(crops){
+    // $scope.cropsData=crops.sowings;
+    // $scope.sowings=[];
+    // $scope.protocols=[];
+    // $scope.practices=[];
 
-  angular.forEach(crops.sowings, function(demoCrops, index)
-{
-  angular.forEach(demoCrops.sowings, function(sowingsGroup, index){
-    $scope.sowings.push(sowingsGroup);
+  //   angular.forEach(crops.sowings, function(demoCrops, index) {
+  //     angular.forEach(demoCrops.sowings, function(sowingsGroup, index){
+  //       $scope.sowings.push(sowingsGroup);
+  //
+  //       angular.forEach(sowingsGroup.protocols, function(protocolsGroup, index){
+  //         $scope.protocols.push(protocolsGroup);
+  //
+  //         angular.forEach(protocolsGroup.practices, function(practicesGroup, index){
+  //           $scope.practices.push(practicesGroup);
+  //         });
+  //       });
+  //     });
+  //   });
+  // });
 
-  angular.forEach(sowingsGroup.protocols, function(protocolsGroup, index){
-    $scope.protocols.push(protocolsGroup);
-
-    angular.forEach(protocolsGroup.practices, function(practicesGroup, index){
-      $scope.practices.push(practicesGroup);
-    });
-  });
-
-});
-}) ;
-  });
-$scope.setGroups=function(groups){
-  $scope.useGroups=groups;
-}
+// $scope.setGroups=function(groups){
+//   $scope.useGroups=groups;
+// }
 })
 
 

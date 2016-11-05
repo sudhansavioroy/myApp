@@ -63,7 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 
   .state('sowing',{
-    url:"/sowing",
+    url:"/sowing/:cropname",
     templateUrl:"templates/sowing.html",
     controller:'SowingCtrl'
   })
@@ -74,7 +74,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'tab-dash': {
         templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+        controller: 'SowingCtrl'
       }
     }
   })

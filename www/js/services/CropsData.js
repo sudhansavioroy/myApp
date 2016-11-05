@@ -1,7 +1,7 @@
 'use strict';
 
 //var starter=angular.module('starter',[]);
-starter.factory('cropsData',function($http) {
+starter.factory('cropsData', function($http) {
   return {
     crops:[
       {
