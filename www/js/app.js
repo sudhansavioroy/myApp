@@ -45,6 +45,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
 
+    .state('sowing',{
+      url:"/sowing",
+      templateUrl:"templates/sowing.html",
+      controller:'SowingCtrl'
+    })
+
 
   // Each tab has its own nav history stack:
 
@@ -62,6 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 })
 
 
+<<<<<<< HEAD
   .state('sowing',{
     url:"/sowing/:cropname",
     templateUrl:"templates/sowing.html",
@@ -69,6 +76,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
 
+=======
+>>>>>>> f908c0ac5cceb4b4e050420b5ba1271e62c35490
   .state('tab.dash', {
     url: '/dash',
     views: {
