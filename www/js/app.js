@@ -45,6 +45,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
 
+    .state('sowing',{
+      url:"/sowing",
+      templateUrl:"templates/sowing.html",
+      controller:'SowingCtrl'
+    })
+
 
   // Each tab has its own nav history stack:
 
@@ -60,13 +66,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   templateUrl:"templates/crops.html",
   controller:'cropsController'
 })
-
-
-  .state('sowing',{
-    url:"/sowing",
-    templateUrl:"templates/sowing.html",
-    controller:'SowingCtrl'
-  })
 
 
   .state('tab.dash', {

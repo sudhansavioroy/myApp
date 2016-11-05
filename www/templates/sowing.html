@@ -1,21 +1,62 @@
-<ion-view view-title="Paddy">
+<ion-view view-title="Sowing">
   <ion-content class="padding">
-<div class="container" data ng-app="starter">
+<div class="container" ng-app="starter">
 <h1> Protocols </h1>
-<div ng-controller="SowingCtrl">
-  <div>
-    <ul>
-      <li>Name:{{crops.name}}</li>
-  <li>Type:{{crops.type}}</li>
-  <li ng-repeat="groups in cropsData" ng-click="setGroups(groups)">
-  <a href="#">{{groups.name}}content</a></li>
-  <h1>{{useGroups.sowings}}</h1>
+  <ol>
+    <ul ng-controller="SowingCtrl" >
 
-  <ul class="list-unstyled" ng-repeat="sowings in useGroups.sowings">
-    <li ng-repeat="protocols in sowings.protocols">{{sowings.name}}
-      {{sowings.type}}</li></ul>
-  </div>
-</div>
+      <li ng-repeat="crop in crops">
+        {{crop.name}}
+
+        <ul>
+          <li ng-repeat="sowing in crop.sowings">
+            {{sowing.name}}
+            {{sowing.type}}
+            <ul>
+              <li ng-repeat="protocol in sowing.protocols">
+                {{protocol.name}}
+                {{protocol.crop}}
+                {{protocol.prototype}}
+                {{protocol.notes}}
+                {{protocol.timecreated}}
+                <ul>
+                  <li ng-repeat="practice in protocol.practices">
+                    {{practice.name}}
+                    {{practice.description}}
+                    <ul>
+                      <li ng-repeat="property in practice.properties">
+                        {{property.name}}
+                        {{property.type}}
+                        <ul>
+                          <li ng-repeat="image in property.images">
+                            {{image.name}}
+                            {{image.crop}}
+                            {{image.prototype}}
+                            {{image.notes}}
+                            {{image.timecreated}}
+                            <ul>
+                              <li ng-repeat="imagetext in image.imagetexts">
+                                {{imagetext.protocol}}
+                                {{imagetext.protocolsection}}
+                                {{imagetext.ordinalinsection}}
+                                {{imagetext.day}}
+                                {{imagetext.daysupto}}
+                                {{imagetext.ordinalinday}}
+                                {{imagetext.name}}
+                                {{imagetext.description}}
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+        </ul>
+      </li>
+</ol>
 </div>
 
 </ion-content>
